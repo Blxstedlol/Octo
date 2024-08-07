@@ -9,8 +9,19 @@ def interpreter(*args):
             if isinstance(arg, float):
                 file.write(f'{arg} is a float\n')
 
-            
+def readFile(path):
+
+    if path.endswith('.octo'): #checks if the file is in octo format
+
+        with open(path, 'r') as file:
+            data = file.read() #reads the file
+            print(f"Fetched data: {data}") #prints the data
+            for line in data:
+                print(f"line num: {data.index(line)}, line data: {line}")
         
+    else:
+        print("Invalid file format") #prints an error message if the file is not in octo format
 
 # Example usage
-interpreter('Hello World', 42, 3.14, 'Python')
+interpreter('Hello World', 42, 2, 'Python')
+readFile('interpreter.octo')
