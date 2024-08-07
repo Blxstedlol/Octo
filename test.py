@@ -16,8 +16,8 @@ def readFile(path):
         with open(path, 'r') as file:
             data = file.read() #reads the file
             print(f"Fetched data: {data}") #prints the data
-            for line in data:
-                print(f"line num: {data.index(line)}, line data: {line}")
+            for index, line in enumerate(data.split('\n'), start=1):
+                print(f"Line {index}: {line.strip()}")
         
     else:
         print("Invalid file format") #prints an error message if the file is not in octo format
